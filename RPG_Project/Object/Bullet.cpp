@@ -1,9 +1,8 @@
 #include "framework.h"
 
-Bullet::Bullet(float radius): Circle(radius)
+Bullet::Bullet(float radius) : Circle(radius)
 {
-	center = { 300,300 };
-	
+	isActive = false;
 }
 
 Bullet::~Bullet()
@@ -12,14 +11,25 @@ Bullet::~Bullet()
 
 void Bullet::Update()
 {
-	
-	center.x += speed;
+	if (!isActive) { return; }
+	center.x += bulletSpeed;
+	if (center.x - radius > SCREEN_WIDTH)
+	{
+		isActive = false;
+	}
 }
 
-void Bullet::Fire(float2 center, int AP)
+void Bullet::Fire(float2 pos)
 {
+	center = pos;
 	isActive = true;
-	this->center = center;
-	this->AttackPoint += AP;
-	
 }
+
+//void Bullet::Render(HDC hdc)
+//{
+//	Circle::Render(hdc);
+//}
+
+
+
+

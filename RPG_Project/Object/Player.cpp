@@ -2,42 +2,46 @@
 
 Player::Player(float radius) : Circle(radius)
 {
-    bullet = new Bullet(10);
-    bullet->SetActive(false);
+    center = { 50,300 };
+    //bullet = new Bullet(10);
+    bullets.reserve(bulletPoolSize);
+    for (int i = 0; i < bulletPoolSize; i++)
+    {
+        Bullet* bullet = new Bullet(5);
+        bullet->SetActive(false);
+        bullets.push_back(bullet);
+    }
+ 
 }
 
 Player::~Player()
 {
+    //delete bullet;
+    for (Bullet* bullet : bullets)
+    {
+        delete bullet;
+    }
+	bullets.clear();
+}
+
+void Player::Update()
+{    
+    MoveControl();	
 }
 
 void Player::Render(HDC hdc)
 {
     Circle::Render(hdc);
-    bullet->Render(hdc);
-
-}
-
-void Player::Update()
-{
-    
-    MoveControl();
-    Gravity();
-
-}
-
-
-void Player::Gravity()
-{
-    yVelocity += gravity;
-    center.y += yVelocity;
-    if (center.y + radius >= groundY)
+    //bullet->Render(hdc);
+    for (Bullet* bullet : bullets)
     {
-        center.y = groundY - radius;
-        yVelocity = 0;
+        if (bullet->GetActive())
+        bullet->Render(hdc);
     }
-  
-    
+
 }
+
+
 
 void Player::MoveControl()
 {
@@ -49,27 +53,45 @@ void Player::MoveControl()
     {
         center.x -= speed;
     }
-   // if (GetAsyncKeyState(VK_UP))
-   // {
-   //     if (center.y + radius >= groundY)
-   //     {
-   //         center.y -= speed + 100;
-   //     }
-   // }
+    if (GetAsyncKeyState(VK_UP))
+    {
+        center.y -= speed;        
+    }
     if (GetAsyncKeyState(VK_DOWN))
     {
         center.y += speed;
-    }
-  
+    }    
     if (GetAsyncKeyState(VK_SPACE))
     {
-        if (!isActive)
+        if (!iskeyPreesed)
         {
-            bullet->Fire(this->center, this->AttackPoint);
-            
+            iskeyPreesed = true;
+           // bullet->Fire(center);
+
+            for (Bullet* bullet : bullets)
+            {
+                if (!bullet->GetActive())
+                {
+                
+                bullet->Fire(center);
+                break;
+                }  
+            }
+
         }
        
+      
     }
-    bullet->Update();
-    
+    else
+    {
+        iskeyPreesed = false;
+    }
+    //bullet->Update();
+    for (Bullet* bullet : bullets)
+    {
+        if (bullet->GetActive())
+        {
+            bullet->Update();
+        }
+    }
 }
