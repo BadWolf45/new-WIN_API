@@ -4,8 +4,10 @@
 GameManager::GameManager()
 {
 	
-	player = new Player(50);
-	
+	player = new Player(15);
+	monster = new Monster(30);
+	BulletManager::GET();
+
 	hdc = GetDC(hWnd);
 
 	backBuffer = CreateCompatibleDC(hdc);
@@ -16,6 +18,10 @@ GameManager::GameManager()
 GameManager::~GameManager()
 {
 	ReleaseDC(hWnd, hdc);
+	
+	delete player;
+	delete monster;
+	BulletManager::GET()->Delete;
 
 	DeleteObject(backBufferBitmap);
 	DeleteDC(backBuffer);
@@ -24,7 +30,8 @@ GameManager::~GameManager()
 void GameManager::Update()
 {
 	player->Update();
-	
+	//BulletManager::GET()->Update();
+
 	InvalidateRect(hWnd, nullptr, false);
 	
 }
@@ -34,8 +41,9 @@ void GameManager::Render()
 {
 	PatBlt(backBuffer, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, WHITENESS);
 	
-	
+	BulletManager::GET()->Render(backBuffer);
 	player->Render(backBuffer);
+	monster->Render(backBuffer);
 	
 
 	BitBlt(hdc,0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, backBuffer, 0, 0, SRCCOPY);

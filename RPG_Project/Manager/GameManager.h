@@ -15,5 +15,6 @@ private:
 	HDC backBuffer;
 	HBITMAP backBufferBitmap;
 	Player* player;	
+	Monster* monster;
 	
 };

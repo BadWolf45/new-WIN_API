@@ -2,7 +2,7 @@
 
 Bullet::Bullet(float radius) : Circle(radius)
 {
-	isActive = false;
+	
 }
 
 Bullet::~Bullet()
@@ -11,12 +11,12 @@ Bullet::~Bullet()
 
 void Bullet::Update()
 {
-	if (!isActive) { return; }
-	center.x += bulletSpeed;
-	if (center.x - radius > SCREEN_WIDTH)
-	{
-		isActive = false;
-	}
+     if (!Bullet::GetActive()) { return; }
+	 center.x += bulletSpeed;
+	 if (center.x - radius > SCREEN_WIDTH)
+	 {
+	     isActive = false;
+	 }
 }
 
 void Bullet::Fire(float2 pos)

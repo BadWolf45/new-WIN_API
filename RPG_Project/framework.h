@@ -19,5 +19,7 @@ extern HWND hWnd;
 #include "utill/float2.h"
 #include "Object/Circle.h"
 #include "Object/Player.h"
+#include "Object/Monster.h"
 #include "Object/Bullet.h"
+#include "Manager/BulletManger.h"
 #include "Manager/GameManager.h"

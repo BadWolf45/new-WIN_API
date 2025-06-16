@@ -3,7 +3,7 @@
 class Bullet : public Circle
 {
 private:
-	float bulletSpeed = 0.2;
+	float bulletSpeed = 0.05;
 public:
 
 	Bullet(float radius);
