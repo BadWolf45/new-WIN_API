@@ -19,6 +19,8 @@ void Bullet::Update()
 	 }
 }
 
+
+
 void Bullet::Fire(float2 pos)
 {
 	center = pos;

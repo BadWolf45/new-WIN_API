@@ -10,11 +10,11 @@ public:
 	Monster(float radius);
 	~Monster();
 
-	void colision();
+	void Update();
+	void Render(HDC hdc);
 
 private:
-	
-
-
-
+	HBRUSH hRedBrush;
+	HBRUSH hbluebrush;
+	HBRUSH hselectBrush;
 };

@@ -27,6 +27,7 @@ public:
 	void Update();
 	void Render(HDC hdc);
 	void FireBullet(float2 pos);
+	bool IsCollision(Circle* circle);
 
 private:
 	static BulletManager* instance;

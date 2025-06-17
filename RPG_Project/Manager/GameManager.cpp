@@ -4,8 +4,9 @@
 GameManager::GameManager()
 {
 	
-	player = new Player(15);
-	monster = new Monster(30);
+	player = new Player(60);
+	//monster = new Monster(30);
+	monster
 	BulletManager::GET();
 
 	hdc = GetDC(hWnd);
@@ -31,8 +32,9 @@ void GameManager::Update()
 {
 	player->Update();
 	//BulletManager::GET()->Update();
+	monster->Update();
 
-	InvalidateRect(hWnd, nullptr, false);
+	//InvalidateRect(hWnd, nullptr, false);
 	
 }
 

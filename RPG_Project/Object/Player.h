@@ -20,4 +20,5 @@ private:
 	bool iskeyPreesed = false;
 	class BulletManager* bulletManager;
 	
+	
 };

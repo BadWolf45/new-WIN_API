@@ -14,6 +14,7 @@
 #include <windows.h>
 using namespace std;
 extern HWND hWnd;
+extern POINT mousePos;
 #include <vector>
 
 #include "utill/float2.h"
@@ -23,3 +24,4 @@ extern HWND hWnd;
 #include "Object/Bullet.h"
 #include "Manager/BulletManger.h"
 #include "Manager/GameManager.h"
+#include "Manager/MonsterManager.h"

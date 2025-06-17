@@ -55,4 +55,18 @@ void BulletManager::FireBullet(float2 pos)
     }
 }
 
+bool BulletManager::IsCollision(Circle* circle)
+{
+    for (Bullet* bullet : bullets)
+    {
+        if (bullet->GetActive() && bullet->isColisionCircle(circle))
+        {
+            bullet->SetActive(false);
+            return true;
+        }
+
+    }
+    
+}
+
 

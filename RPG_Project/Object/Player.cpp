@@ -19,7 +19,13 @@ void Player::Update()
 
 void Player::Render(HDC hdc)
 {
-    Circle::Render(hdc);
+    MoveToEx(hdc, center.x, center.y - radius,nullptr);
+    LineTo(hdc, center.x - radius, center.y + radius);
+    MoveToEx(hdc, center.x - radius, center.y + radius,nullptr);
+    LineTo(hdc, center.x + radius, center.y + radius);
+    MoveToEx(hdc, center.x + radius, center.y + radius, nullptr);
+    LineTo(hdc, center.x, center.y - radius);
+    //Circle::Render(hdc);
     //bulletManager->Render(hdc);
 }
 

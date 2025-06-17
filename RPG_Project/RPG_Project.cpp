@@ -10,10 +10,9 @@
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
-
-
-
 HWND hWnd;
+
+POINT mousePos;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -203,6 +202,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         break;
   
+    break;
+
+    case WM_MOUSEMOVE:
+    {
+        mousePos.x = LOWORD(lParam);
+        mousePos.y = HIWORD(lParam);
+    }
     break;
     case WM_DESTROY:
         PostQuitMessage(0);
