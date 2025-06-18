@@ -12,8 +12,8 @@ Bullet::~Bullet()
 void Bullet::Update()
 {
      if (!Bullet::GetActive()) { return; }
-	 center.x += bulletSpeed;
-	 if (center.x - radius > SCREEN_WIDTH)
+	 center.y -= bulletSpeed;
+	 if (center.y + radius < 0)
 	 {
 	     isActive = false;
 	 }

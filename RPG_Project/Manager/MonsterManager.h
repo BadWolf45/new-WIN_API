@@ -3,7 +3,9 @@
 class MonsterManager
 {
 private:
-	int monsterPoolSize = 4;
+	int monsterPoolSize = 1;
+	float spawnTimer = 0.0f;
+	float spawnDelay = 120.0f; // 예시: 2초마다 생성 (게임 루프 속도에 따라 조절)
 	
 private:
 	MonsterManager();
@@ -28,7 +30,7 @@ public:
 	void Update();
 	void Render(HDC hdc);
 
-
+	
 
 
 private:

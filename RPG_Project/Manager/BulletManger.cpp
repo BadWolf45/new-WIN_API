@@ -42,7 +42,7 @@ void BulletManager::Render(HDC hdc)
     }
 }
 
-void BulletManager::FireBullet(float2 pos)
+void BulletManager::FireBullet(float2 pos, int AttackPoint)
 {
     for (Bullet* bullet : bullets)
     {
@@ -60,13 +60,12 @@ bool BulletManager::IsCollision(Circle* circle)
     for (Bullet* bullet : bullets)
     {
         if (bullet->GetActive() && bullet->isColisionCircle(circle))
-        {
+        {           
             bullet->SetActive(false);
             return true;
         }
-
     }
-    
+    return false;
 }
 
 

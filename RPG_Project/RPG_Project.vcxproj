@@ -137,6 +137,8 @@
     <ClInclude Include="Object\Circle.h" />
     <ClInclude Include="Object\Monster.h" />
     <ClInclude Include="Object\헤더.h" />
+    <ClInclude Include="Scene\Scene.h" />
+    <ClInclude Include="Scene\shootingScene.h" />
     <ClInclude Include="utill\float2.h" />
     <ClInclude Include="Manager\GameManager.h" />
     <ClInclude Include="Object\Player.h" />
@@ -153,6 +155,7 @@
     <ClCompile Include="Object\Monster.cpp" />
     <ClCompile Include="Object\Player.cpp" />
     <ClCompile Include="RPG_Project.cpp" />
+    <ClCompile Include="Scene\shootingScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RPG_Project.rc" />

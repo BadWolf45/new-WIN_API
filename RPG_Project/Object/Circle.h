@@ -15,6 +15,7 @@ public:
 	bool GetActive() { return isActive; }
 	void SetCenter(float2 center) { center = center; }
 	float2 GetCenter() { return center; }
+	float GetRadius() { return radius; }
 protected:
 	bool isActive = true;
 	bool  isKeyDown = false;

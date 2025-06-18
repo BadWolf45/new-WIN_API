@@ -1,16 +1,10 @@
 #include "framework.h"
-#include "GameManager.h"
+#include "Scene/shootingScene.h"
 
 GameManager::GameManager()
 {
-	
-	player = new Player(60);
-	//monster = new Monster(30);
-	monster
-	BulletManager::GET();
-
 	hdc = GetDC(hWnd);
-
+	scene = new ShootingScene();
 	backBuffer = CreateCompatibleDC(hdc);
 	backBufferBitmap = CreateCompatibleBitmap(hdc, SCREEN_WIDTH, SCREEN_HEIGHT);
 	SelectObject(backBuffer, backBufferBitmap);
@@ -20,9 +14,7 @@ GameManager::~GameManager()
 {
 	ReleaseDC(hWnd, hdc);
 	
-	delete player;
-	delete monster;
-	BulletManager::GET()->Delete;
+	delete scene;
 
 	DeleteObject(backBufferBitmap);
 	DeleteDC(backBuffer);
@@ -30,12 +22,8 @@ GameManager::~GameManager()
 
 void GameManager::Update()
 {
-	player->Update();
-	//BulletManager::GET()->Update();
-	monster->Update();
+	scene->Update();
 
-	//InvalidateRect(hWnd, nullptr, false);
-	
 }
 
 
@@ -43,10 +31,8 @@ void GameManager::Render()
 {
 	PatBlt(backBuffer, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, WHITENESS);
 	
-	BulletManager::GET()->Render(backBuffer);
-	player->Render(backBuffer);
-	monster->Render(backBuffer);
-	
+
+	scene->Render(backBuffer);
 
 	BitBlt(hdc,0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, backBuffer, 0, 0, SRCCOPY);
 }

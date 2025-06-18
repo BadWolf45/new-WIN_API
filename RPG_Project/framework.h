@@ -12,10 +12,14 @@
 #define WIN32_LEAN_AND_MEAN             // 거의 사용되지 않는 내용을 Windows 헤더에서 제외합니다.
 // Windows 헤더 파일
 #include <windows.h>
+
 using namespace std;
 extern HWND hWnd;
 extern POINT mousePos;
 #include <vector>
+#include <algorithm>
+#include <cmath>
+
 
 #include "utill/float2.h"
 #include "Object/Circle.h"
@@ -23,5 +27,9 @@ extern POINT mousePos;
 #include "Object/Monster.h"
 #include "Object/Bullet.h"
 #include "Manager/BulletManger.h"
-#include "Manager/GameManager.h"
 #include "Manager/MonsterManager.h"
+#include "Scene/Scene.h"
+#include "Manager/GameManager.h"
+#include "Scene/shootingScene.h"
+
+

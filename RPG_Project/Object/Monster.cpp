@@ -2,7 +2,7 @@
 
 Monster::Monster(float radius) : Circle(radius)
 {
-	center = { 400,300 };
+	center = { 500,-50 };
 	hRedBrush = CreateSolidBrush(RGB(255, 0, 0));
 	hbluebrush = CreateSolidBrush(RGB(0, 0, 255));
 	
@@ -16,6 +16,7 @@ Monster::~Monster()
 
 void Monster::Update()
 {
+	MonsterMove();
 	if (isColisionPoint(mousePos))
 	{
 		hselectBrush =  hRedBrush;
@@ -25,10 +26,22 @@ void Monster::Update()
 		hselectBrush = hbluebrush;
 	}
 	
-	if (BulletManager::GET()->IsCollision(this) == true)
+	if (BulletManager::GET()->IsCollision(this))
 	{
-		isActive = false;
+		int P =Player::Get()->GetPlayerAttakPoint();
+		HealthPoint -= P;
+		if (HealthPoint <= 0)
+		{
+			isActive = false;
+			center = { 500,-50 };
+			isActive = true;
+
+		}
+		
 	}
+
+
+	
 }
 
 void Monster::Render(HDC hdc)
@@ -36,6 +49,18 @@ void Monster::Render(HDC hdc)
 	SelectObject(hdc, hselectBrush);
 	Circle::Render(hdc);
 }
+
+void Monster::MonsterMove()
+{
+	center.y += speed;
+	if (center.y - radius >= SCREEN_HEIGHT)
+	{
+		isActive = false;
+		center = { 500,-50 };
+		isActive = true;
+	}
+}
+
 
 
 

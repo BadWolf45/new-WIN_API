@@ -9,7 +9,7 @@ MonsterManager::MonsterManager()
 	for (int i = 0; i < monsterPoolSize; i++)
 	{
 		Monster* monster = new Monster(20);
-		monster->SetActive(false);
+		//monster->SetActive(false);
 		monsters.push_back(monster);
 	}
 }
@@ -34,6 +34,7 @@ void MonsterManager::Render(HDC hdc)
 {
 	for (Monster* monster : monsters)
 	{
-		monster->Render(hdc);
+			monster->Render(hdc);
 	}
 }
+
