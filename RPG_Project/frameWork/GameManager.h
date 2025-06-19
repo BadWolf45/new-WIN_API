@@ -9,6 +9,9 @@ public:
 	void Update();
 	void Render();
 
+	void Create();
+	void Relese();
+
 private:
 	HDC hdc;
 

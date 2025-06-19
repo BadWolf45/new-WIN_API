@@ -63,6 +63,9 @@
     <ClInclude Include="frameWork\Utilitys\SingleTon.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="frameWork\Utilitys\Timer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RPG_Project.cpp">
@@ -90,6 +93,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Scene\shootingScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="frameWork\Utilitys\Timer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

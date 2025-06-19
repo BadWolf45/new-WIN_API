@@ -63,7 +63,7 @@ void Monster::Render(HDC hdc)
 
 void Monster::MonsterMove()
 {
-	center.y += speed;
+	center.y += speed * DELTA;
 	if (center.y - radius >= SCREEN_HEIGHT)
 	{
 		isActive = false;

@@ -4,7 +4,7 @@ class Monster : public Circle
 {
 private:
 	float AttackPoint = 1.0f;
-	float speed = 0.01f;
+	float speed = 100.0f;
 
 	int mexHealthPoint = 5;
 	int mexManaPoint = 3;

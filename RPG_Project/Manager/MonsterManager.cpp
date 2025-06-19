@@ -15,10 +15,10 @@ MonsterManager::~MonsterManager()
 
 void MonsterManager::Update()
 {
-	spawnTimer++;
+	spawnTimer += DELTA;
 	if (spawnTimer >= spawnDelay)
 	{
-		spawnTimer = 0;
+		spawnTimer = 0.0f;
 		SpawnMonster();
 	}
 	

@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="frameWork\Utilitys\SingleTon.h" />
+    <ClInclude Include="frameWork\Utilitys\Timer.h" />
     <ClInclude Include="Manager\BulletManger.h" />
     <ClInclude Include="Manager\MonsterManager.h" />
     <ClInclude Include="Object\Bullet.h" />
@@ -148,6 +149,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="frameWork\Utilitys\Timer.cpp" />
     <ClCompile Include="Manager\BulletManger.cpp" />
     <ClCompile Include="Manager\MonsterManager.cpp" />
     <ClCompile Include="Object\Bullet.cpp" />
