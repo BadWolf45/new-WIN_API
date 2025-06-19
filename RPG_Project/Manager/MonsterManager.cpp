@@ -5,16 +5,44 @@ MonsterManager* MonsterManager::instance = nullptr;
 
 MonsterManager::MonsterManager()
 {
+	MonsterPoolcreate();
+}
+
+MonsterManager::~MonsterManager()
+{
+	MonsterPoolDelete();
+}
+
+void MonsterManager::Update()
+{
+	spawnTimer++;
+	if (spawnTimer >= spawnDelay)
+	{
+		spawnTimer = 0;
+		SpawnMonster();
+	}
+	
+	MonsterPoolUpdate();
+
+}
+
+void MonsterManager::Render(HDC hdc)
+{
+	MonsterPoolRender(hdc);
+}
+
+void MonsterManager::MonsterPoolcreate()
+{
 	monsters.reserve(monsterPoolSize);
 	for (int i = 0; i < monsterPoolSize; i++)
 	{
 		Monster* monster = new Monster(20);
-		//monster->SetActive(false);
+		monster->SetActive(false);
 		monsters.push_back(monster);
 	}
 }
 
-MonsterManager::~MonsterManager()
+void MonsterManager::MonsterPoolDelete()
 {
 	for (Monster* monster : monsters)
 	{
@@ -22,7 +50,7 @@ MonsterManager::~MonsterManager()
 	}
 }
 
-void MonsterManager::Update()
+void MonsterManager::MonsterPoolUpdate()
 {
 	for (Monster* monster : monsters)
 	{
@@ -30,11 +58,31 @@ void MonsterManager::Update()
 	}
 }
 
-void MonsterManager::Render(HDC hdc)
+void MonsterManager::MonsterPoolRender(HDC hdc)
 {
 	for (Monster* monster : monsters)
 	{
-			monster->Render(hdc);
+		monster->Render(hdc);
+	}
+}
+
+
+
+
+void MonsterManager::SpawnMonster()
+{
+	float rendomX = rand() % SCREEN_WIDTH;
+
+	for (Monster* monster : monsters)
+	{
+		if (!monster->GetActive())
+		{
+			monster->SetCenter(rendomX, 0);
+			monster->SetActive(true);
+			
+			break;
+		}
+		
 	}
 }
 

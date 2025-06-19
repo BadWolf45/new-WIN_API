@@ -4,10 +4,10 @@ class Monster : public Circle
 {
 private:
 	float AttackPoint = 1.0f;
-	float speed = 0.1f;
+	float speed = 0.01f;
 
-	int MexHealthPoint = 5;
-	int MexManaPoint = 3;
+	int mexHealthPoint = 5;
+	int mexManaPoint = 3;
 public:
 
 	Monster(float radius);
@@ -16,10 +16,11 @@ public:
 	void Update();
 	void Render(HDC hdc);
 	void MonsterMove();
-
+	int SetHP(int HP) { healthPoint = HP; }
+	int GetHP() { return mexHealthPoint; }
 private:
-	int HealthPoint = MexHealthPoint;
-	int ManaPoint = MexManaPoint;
+	int healthPoint = mexHealthPoint;
+	int manaPoint = mexManaPoint;
 	HBRUSH hRedBrush;
 	HBRUSH hbluebrush;
 	HBRUSH hselectBrush;

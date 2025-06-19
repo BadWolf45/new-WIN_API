@@ -6,8 +6,8 @@
 
 #define SCREEN_START1 300
 #define SCREEN_START2 250
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH 300
+#define SCREEN_HEIGHT 800
 #include "targetver.h"
 #define WIN32_LEAN_AND_MEAN             // 거의 사용되지 않는 내용을 Windows 헤더에서 제외합니다.
 // Windows 헤더 파일
@@ -20,6 +20,7 @@ extern POINT mousePos;
 #include <algorithm>
 #include <cmath>
 
+#include "frameWork/Utilitys/SingleTon.h"
 
 #include "utill/float2.h"
 #include "Object/Circle.h"
@@ -29,7 +30,7 @@ extern POINT mousePos;
 #include "Manager/BulletManger.h"
 #include "Manager/MonsterManager.h"
 #include "Scene/Scene.h"
-#include "Manager/GameManager.h"
+#include "frameWork/GameManager.h"
 #include "Scene/shootingScene.h"
 
 

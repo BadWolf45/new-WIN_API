@@ -3,7 +3,7 @@
 Player* Player::instance = nullptr;
 Player::Player(float radius) : Circle(radius)
 {
-    center = { SCREEN_WIDTH>>1,SCREEN_HEIGHT -100 };
+    center = { SCREEN_WIDTH>>1,SCREEN_HEIGHT * 4/5 };
     hPen = CreatePen(PS_SOLID, 3, RGB(0, 0, 255));
 }
 

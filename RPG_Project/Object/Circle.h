@@ -14,6 +14,7 @@ public:
 	void SetActive(bool active) { isActive = active; }
 	bool GetActive() { return isActive; }
 	void SetCenter(float2 center) { center = center; }
+	void SetCenter(float x, float y) { center.x = x, center.y = y; }
 	float2 GetCenter() { return center; }
 	float GetRadius() { return radius; }
 protected:

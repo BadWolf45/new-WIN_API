@@ -1,8 +1,13 @@
 #include "framework.h"
+#include "monster.h"
+#include "monster.h"
+#include "monster.h"
+#include "monster.h"
+#include "monster.h"
 
 Monster::Monster(float radius) : Circle(radius)
 {
-	center = { 500,-50 };
+	
 	hRedBrush = CreateSolidBrush(RGB(255, 0, 0));
 	hbluebrush = CreateSolidBrush(RGB(0, 0, 255));
 	
@@ -16,6 +21,7 @@ Monster::~Monster()
 
 void Monster::Update()
 {
+	if (!isActive) { return; }
 	MonsterMove();
 	if (isColisionPoint(mousePos))
 	{
@@ -29,26 +35,31 @@ void Monster::Update()
 	if (BulletManager::GET()->IsCollision(this))
 	{
 		int P =Player::Get()->GetPlayerAttakPoint();
-		HealthPoint -= P;
-		if (HealthPoint <= 0)
+		healthPoint -= P;
+		if (healthPoint <= 0)
 		{
+			healthPoint = mexHealthPoint;
 			isActive = false;
-			center = { 500,-50 };
-			isActive = true;
-
+			
 		}
 		
 	}
 
-
-	
 }
 
 void Monster::Render(HDC hdc)
 {
-	SelectObject(hdc, hselectBrush);
+	if (!isActive) { return; }
+	HBRUSH defaoltBrush1 =  (HBRUSH)SelectObject(hdc, hselectBrush);
 	Circle::Render(hdc);
+
+	SelectObject(hdc, defaoltBrush1);
 }
+
+
+
+
+
 
 void Monster::MonsterMove()
 {
@@ -56,12 +67,7 @@ void Monster::MonsterMove()
 	if (center.y - radius >= SCREEN_HEIGHT)
 	{
 		isActive = false;
-		center = { 500,-50 };
-		isActive = true;
 	}
 }
-
-
-
 
 

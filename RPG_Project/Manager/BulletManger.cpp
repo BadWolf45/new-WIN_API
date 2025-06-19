@@ -1,6 +1,6 @@
 #include "framework.h"
 
-BulletManager* BulletManager::instance = nullptr;
+
 
 BulletManager::BulletManager()
 {

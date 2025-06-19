@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="frameWork\Utilitys\SingleTon.h" />
     <ClInclude Include="Manager\BulletManger.h" />
     <ClInclude Include="Manager\MonsterManager.h" />
     <ClInclude Include="Object\Bullet.h" />
@@ -140,7 +141,7 @@
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\shootingScene.h" />
     <ClInclude Include="utill\float2.h" />
-    <ClInclude Include="Manager\GameManager.h" />
+    <ClInclude Include="frameWork\GameManager.h" />
     <ClInclude Include="Object\Player.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="RPG_Project.h" />
@@ -151,7 +152,7 @@
     <ClCompile Include="Manager\MonsterManager.cpp" />
     <ClCompile Include="Object\Bullet.cpp" />
     <ClCompile Include="Object\Circle.cpp" />
-    <ClCompile Include="Manager\GameManager.cpp" />
+    <ClCompile Include="frameWork\GameManager.cpp" />
     <ClCompile Include="Object\Monster.cpp" />
     <ClCompile Include="Object\Player.cpp" />
     <ClCompile Include="RPG_Project.cpp" />

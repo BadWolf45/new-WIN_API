@@ -1,8 +1,9 @@
 #pragma once
 #include "framework.h"
 
-class BulletManager
+class BulletManager : public Singleton<BulletManager>
 {
+	friend class Singleton;
 private:
 	int bulletPoolSize = 10;
 
@@ -11,18 +12,7 @@ private:
 	~BulletManager();
 
 public:
-	static BulletManager* GET()
-	{
-		if (instance == nullptr)
-		{
-			instance = new BulletManager();
-		}
-		return instance;
-	}
-	static void Delete()
-	{
-		delete instance;
-	}
+
 
 	void Update();
 	void Render(HDC hdc);
@@ -30,7 +20,7 @@ public:
 	bool IsCollision(Circle* circle);
 
 private:
-	static BulletManager* instance;
+
 	vector<Bullet*> bullets;
 
 };
