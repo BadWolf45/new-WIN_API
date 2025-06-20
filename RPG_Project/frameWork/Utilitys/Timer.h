@@ -15,7 +15,7 @@ public:
 	void Update();
 	void Render(HDC hdc);
 
-	float GerElapsedTime() { return elapsedTime; }
+	float GetElapsedTime() { return elapsedTime; }
 	
 private:
 

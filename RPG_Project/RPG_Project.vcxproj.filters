@@ -66,6 +66,15 @@
     <ClInclude Include="frameWork\Utilitys\Timer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="frameWork\Utilitys\Input.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\gauge.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\skill.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RPG_Project.cpp">
@@ -96,6 +105,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="frameWork\Utilitys\Timer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="frameWork\Utilitys\Input.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\gauge.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\skill.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

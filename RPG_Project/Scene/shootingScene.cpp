@@ -5,6 +5,7 @@ ShootingScene::ShootingScene()
 	Player::Get();
 	MonsterManager::GET();
 	BulletManager::GET();
+
 }
 
 ShootingScene::~ShootingScene()
@@ -25,4 +26,5 @@ void ShootingScene::Render(HDC hdc)
 	BulletManager::GET()->Render(hdc);
 	Player::Get()->Render(hdc);
 	MonsterManager::GET()->Render(hdc);
+	
 }

@@ -16,7 +16,7 @@ public:
 
 	void Update();
 	void Render(HDC hdc);
-	void FireBullet(float2 pos, int AttackPoint);
+	void FireBullet(float2 pos);
 	bool IsCollision(Circle* circle);
 
 private:

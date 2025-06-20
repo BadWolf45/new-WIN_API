@@ -18,6 +18,7 @@ void MonsterManager::Update()
 	spawnTimer += DELTA;
 	if (spawnTimer >= spawnDelay)
 	{
+		
 		spawnTimer = 0.0f;
 		SpawnMonster();
 	}

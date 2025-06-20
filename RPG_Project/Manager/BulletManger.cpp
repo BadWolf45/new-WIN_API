@@ -42,7 +42,7 @@ void BulletManager::Render(HDC hdc)
     }
 }
 
-void BulletManager::FireBullet(float2 pos, int AttackPoint)
+void BulletManager::FireBullet(float2 pos)
 {
     for (Bullet* bullet : bullets)
     {

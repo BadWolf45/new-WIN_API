@@ -45,6 +45,8 @@ void Monster::Update()
 		
 	}
 
+	if 
+
 }
 
 void Monster::Render(HDC hdc)
