@@ -13,7 +13,7 @@ public:
 
 
 	
-	void Fire(float2 center);
+	void Fire(Vector2 center);
 
 
 private:

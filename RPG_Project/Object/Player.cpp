@@ -5,13 +5,12 @@ Player::Player(float radius) : Circle(radius)
 {
     center = { SCREEN_WIDTH>>1,SCREEN_HEIGHT * 4/5 };
     hPen = CreatePen(PS_SOLID, 3, RGB(0, 0, 255));
-    skill = new Skill(15);
 }
 
 Player::~Player()
 { 
     DeleteObject(hPen);
-    delete skill;
+  
 }
 
 void Player::Update()  
@@ -19,14 +18,14 @@ void Player::Update()
    MoveControl();
    LineOut();
    gaugeUpdate();
-   skill->Update();
+ 
 }
 
 void Player::Render(HDC hdc)
 {
     DrawLine(hdc);
     gauge(hdc);
-    skill->Render(hdc);
+   
 }
 
 
@@ -35,19 +34,20 @@ void Player::MoveControl()
 {
     if (GetAsyncKeyState(VK_RIGHT))
     {
-        center.x += speed;
+        //center.x += speed;
+        center += Vector2(speed*DELTA, 0);
     }
     if (GetAsyncKeyState(VK_LEFT))
     {
-        center.x -= speed;
+        center.x -= speed * DELTA;
     }
     if (GetAsyncKeyState(VK_UP))
     {
-        center.y -= speed;        
+        center.y -= speed * DELTA;
     }
     if (GetAsyncKeyState(VK_DOWN))
     {
-        center.y += speed;
+        center.y += speed * DELTA;
     }    
     if (Input::GET()->IsKeyDown(VK_SPACE))
     {
@@ -166,9 +166,6 @@ void Player::gaugeUpdate()
             // TODO: 강력한 공격 발동!
             // currentCharge 값을 사용해서 공격의 위력을 결정!
             // 예: LaunchPowerfulAttack(currentCharge);
-          
-            skill->PowerShot(center);
-            
 
             // 공격 발동 후 기 모으는 상태 리셋
             isCharging = false;

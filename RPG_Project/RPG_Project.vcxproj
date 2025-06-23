@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="frameWork\meth\vector2.h" />
     <ClInclude Include="frameWork\Utilitys\Input.h" />
     <ClInclude Include="frameWork\Utilitys\SingleTon.h" />
     <ClInclude Include="frameWork\Utilitys\Timer.h" />

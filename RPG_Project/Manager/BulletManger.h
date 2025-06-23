@@ -16,11 +16,11 @@ public:
 
 	void Update();
 	void Render(HDC hdc);
-	void FireBullet(float2 pos);
+	void FireBullet(Vector2 pos);
 	bool IsCollision(Circle* circle);
 
 private:
-
+	Skill* skill;
 	vector<Bullet*> bullets;
 
 };

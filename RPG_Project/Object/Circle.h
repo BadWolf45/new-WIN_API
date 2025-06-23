@@ -13,13 +13,13 @@ public:
 
 	void SetActive(bool active) { isActive = active; }
 	bool GetActive() { return isActive; }
-	void SetCenter(float2 center) { center = center; }
+	void SetCenter(Vector2 center) { center = center; }
 	void SetCenter(float x, float y) { center.x = x, center.y = y; }
-	float2 GetCenter() { return center; }
+	Vector2 GetCenter() { return center; }
 	float GetRadius() { return radius; }
 protected:
 	bool isActive = true;
 	bool  isKeyDown = false;
 	float radius;
-	float2 center = {};
+	Vector2 center = {};
 };

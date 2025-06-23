@@ -4,7 +4,7 @@
 class Player : public Circle
 {
 private:
-	float speed = 0.1;
+	float speed = 200;
 	int attakPoint = 2;
 
 	Player(float radius);
@@ -40,7 +40,7 @@ public:
 private:
 	bool iskeyPreesed = false;
 	static Player* instance;
-	float2 firePos = {};
+	Vector2 firePos = {};
 	HPEN hPen;
 
 

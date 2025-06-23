@@ -25,7 +25,7 @@ extern POINT mousePos;
 #include <string>
 
 
-
+#include "frameWork/meth/vector2.h"
 #include "frameWork/Utilitys/SingleTon.h"
 #include "frameWork/Utilitys/Input.h"
 #include "frameWork/Utilitys/Timer.h"

@@ -21,7 +21,7 @@ void Bullet::Update()
 
 
 
-void Bullet::Fire(float2 pos)
+void Bullet::Fire(Vector2 pos)
 {
 	center = pos;
 	isActive = true;

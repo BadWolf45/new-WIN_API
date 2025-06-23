@@ -11,6 +11,8 @@ BulletManager::BulletManager()
         bullet->SetActive(false);
         bullets.push_back(bullet);
     }
+
+   
 }
 
 BulletManager::~BulletManager()
@@ -20,6 +22,7 @@ BulletManager::~BulletManager()
         delete bullet;
     }
     bullets.clear();
+  
 }
 
 void BulletManager::Update()
@@ -29,7 +32,7 @@ void BulletManager::Update()
     {
         bullet->Update();            
     }
-
+  
 
 }
 
@@ -40,9 +43,10 @@ void BulletManager::Render(HDC hdc)
         if (bullet->GetActive())
             bullet->Render(hdc);
     }
+   
 }
 
-void BulletManager::FireBullet(float2 pos)
+void BulletManager::FireBullet(Vector2 pos)
 {
     for (Bullet* bullet : bullets)
     {
