@@ -8,7 +8,7 @@ public:
 	~Circle();
 
 	void Render(HDC hdc);
-	bool isColisionPoint(POINT point);
+	bool isColisionPoint(Vector2 point);
 	bool isColisionCircle(Circle* circle);
 
 	void SetActive(bool active) { isActive = active; }

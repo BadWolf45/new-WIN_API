@@ -16,7 +16,7 @@ public:
 
 	void Update();
 	void Render(HDC hdc);
-	void FireBullet(Vector2 pos);
+	void FireBullet(Vector2 pos, Vector2 direction = Vector2::Up());
 	bool IsCollision(Circle* circle);
 
 private:

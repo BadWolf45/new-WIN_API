@@ -32,26 +32,27 @@ void Player::Render(HDC hdc)
 
 void Player::MoveControl()
 {
-    if (GetAsyncKeyState(VK_RIGHT))
+    if (GetAsyncKeyState('D'))
     {
         //center.x += speed;
-        center += Vector2(speed*DELTA, 0);
+        center += Vector2::Right() * speed * DELTA;
     }
-    if (GetAsyncKeyState(VK_LEFT))
+    if (GetAsyncKeyState('A'))
     {
-        center.x -= speed * DELTA;
+        center += Vector2::Left() * speed * DELTA;
     }
-    if (GetAsyncKeyState(VK_UP))
+    if (GetAsyncKeyState('W'))
     {
-        center.y -= speed * DELTA;
+        center += Vector2::Up() * speed * DELTA;
     }
-    if (GetAsyncKeyState(VK_DOWN))
+    if (GetAsyncKeyState('S'))
     {
-        center.y += speed * DELTA;
+        center += Vector2::Down() * speed * DELTA;
     }    
-    if (Input::GET()->IsKeyDown(VK_SPACE))
+    if (Input::GET()->IsKeyDown(VK_LBUTTON))
     {
-            BulletManager::GET()->FireBullet(firePos);
+        Vector2 direction = mousePos - firePos;
+        BulletManager::GET()->FireBullet(firePos, direction.GetNomalize());
     }
   
     BulletManager::GET()->Update();

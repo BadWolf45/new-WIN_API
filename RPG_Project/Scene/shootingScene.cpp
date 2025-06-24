@@ -3,7 +3,7 @@
 ShootingScene::ShootingScene()
 {
 	Player::Get();
-	MonsterManager::GET();
+	MonsterManager::GET()->SetPlayer(Player::Get());
 	BulletManager::GET();
 
 }

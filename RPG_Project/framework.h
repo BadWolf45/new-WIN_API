@@ -17,8 +17,8 @@
 #include <windows.h>
 
 using namespace std;
-extern HWND hWnd;
-extern POINT mousePos;
+
+
 #include <vector>
 #include <algorithm>
 #include <cmath>
@@ -43,3 +43,5 @@ extern POINT mousePos;
 #include "Scene/shootingScene.h"
 
 
+extern HWND hWnd;
+extern Vector2 mousePos;

@@ -19,7 +19,7 @@ void Circle::Render(HDC hdc)
 	Ellipse(hdc, center.x - radius, center.y - radius, center.x + radius, center.y + radius);
 }
 
-bool Circle::isColisionPoint(POINT point)
+bool Circle::isColisionPoint(Vector2 point)
 {
 	int dx = center.x - point.x;
 	int dy = center.y - point.y;

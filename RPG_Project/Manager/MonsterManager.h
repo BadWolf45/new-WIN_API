@@ -24,6 +24,8 @@ public:
 	void MonsterPoolRender(HDC hdc);
 	void SpawnMonster();
 
+	void SetPlayer(Player* player);
+
 
 private:
 	vector<Monster*> monsters;

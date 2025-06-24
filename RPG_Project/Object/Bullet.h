@@ -3,7 +3,7 @@
 class Bullet : public Circle
 {
 private:
-	float bulletSpeed = 0.1;
+	float bulletSpeed = 400;
 public:
 
 	Bullet(float radius);
@@ -13,8 +13,9 @@ public:
 
 
 	
-	void Fire(Vector2 center);
+	void Fire(Vector2 center, Vector2 direction = Vector2::Up());
 
 
 private:
+	Vector2 direction = Vector2::Up();
 };

@@ -21,6 +21,7 @@ void MonsterManager::Update()
 		
 		spawnTimer = 0.0f;
 		SpawnMonster();
+		
 	}
 	
 	MonsterPoolUpdate();
@@ -86,4 +87,14 @@ void MonsterManager::SpawnMonster()
 		
 	}
 }
+
+void MonsterManager::SetPlayer(Player* player)
+{
+	for (Monster* monster : monsters)
+	{
+		monster->SetPlayer(player);
+
+	}
+}
+
 

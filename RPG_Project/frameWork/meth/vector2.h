@@ -16,15 +16,52 @@ struct Vector2
 		return Vector2(x + other.x, y + other.y);
 	}
 
-	Vector2 operator* (const float* scala)
+	Vector2 operator- (const Vector2& other) const
 	{
-		return Vector2(x * scala.x, y * scala.y)
+		return Vector2(x - other.x, y - other.y);
+	}
+
+	Vector2 operator* (const float& scala)
+	{
+		return Vector2(x * scala, y * scala);
 	}
 
 	void operator+=(const Vector2& other)
 	{
 		x += other.x;
 		y += other.y;
+	}
+
+	void operator-= (const Vector2& other)
+	{
+		x -= other.x;
+		y -= other.y;
+	}
+
+	void operator*= (const float& scala)
+	{
+		x *= scala;
+		y *= scala;
+	}
+
+	float Magnitude() const	{ return sqrtf(x * x + y * y); }
+	float strMagnitude() const { return x * x + y * y; }
+
+	void Nomalize()
+	{
+		float lenght = Magnitude();
+
+		if (lenght > 0)
+		{
+			x /= lenght;
+			y /= lenght;
+		}
+	}
+
+	Vector2 GetNomalize()
+	{
+		float lenght = Magnitude();
+		return Vector2(x / lenght, y / lenght);
 	}
 
 	static Vector2 Zero() { return Vector2(0, 0); }
