@@ -60,7 +60,7 @@ void Player::MoveControl()
     }    
     if (Input::GET()->IsKeyDown(VK_LBUTTON))
     {
-        Vector2 direction = aimPoint - firePos;
+        Vector2 direction = mousePos - firePos;
         BulletManager::GET()->FireBullet(firePos, "player", direction.GetNomalize());
     }
     if (Input::GET()->IsKeyPress('E'))
