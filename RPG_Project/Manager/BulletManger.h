@@ -5,7 +5,7 @@ class BulletManager : public Singleton<BulletManager>
 {
 	friend class Singleton;
 private:
-	int bulletPoolSize = 10;
+	int bulletPoolSize = 100;
 
 
 	BulletManager();
@@ -16,8 +16,8 @@ public:
 
 	void Update();
 	void Render(HDC hdc);
-	void FireBullet(Vector2 pos, Vector2 direction = Vector2::Up());
-	bool IsCollision(Circle* circle);
+	void FireBullet(Vector2 pos, string tag, Vector2 direction = Vector2::Up());
+	bool IsCollision(Circle* circle, string tag);
 
 private:
 	Skill* skill;

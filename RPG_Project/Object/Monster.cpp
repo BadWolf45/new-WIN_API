@@ -26,7 +26,7 @@ void Monster::Update()
 {
 	if (!isActive) { return; }
 	MonsterMove();
-	//Damage();
+	Damage();
 	Fire();
 
 }
@@ -65,10 +65,10 @@ void Monster::Damage()
 		hselectBrush = hbluebrush;
 	}
 
-	if (BulletManager::GET()->IsCollision(this))
+	if (BulletManager::GET()->IsCollision(this,"player"))
 	{
 		int P = Player::Get()->GetPlayerAttakPoint();
-		//healthPoint -= P;
+		healthPoint -= P;
 		if (healthPoint <= 0)
 		{
 			healthPoint = mexHealthPoint;
@@ -84,7 +84,7 @@ void Monster::Fire()
 	{
 		fireTime = 0.0f;
 		Vector2 direction = player->GetCenter() - center;
-		BulletManager::GET()->FireBullet(center, direction.GetNomalize());
+		BulletManager::GET()->FireBullet(center, "monster", direction.GetNomalize());
 	}
 
 }

@@ -46,26 +46,33 @@ void BulletManager::Render(HDC hdc)
    
 }
 
-void BulletManager::FireBullet(Vector2 pos, Vector2 direction)
+void BulletManager::FireBullet(Vector2 pos, string tag, Vector2 direction)
 {
     for (Bullet* bullet : bullets)
     {
         if (!bullet->GetActive())
         {
 
-            bullet->Fire(pos,direction);
+            bullet->Fire(pos,tag, direction);
             break;
         }
     }
 }
 
-bool BulletManager::IsCollision(Circle* circle)
+bool BulletManager::IsCollision(Circle* circle, string tag)
 {
     for (Bullet* bullet : bullets)
     {
-        if (bullet->GetActive() && bullet->isColisionCircle(circle))
+        if (!bullet->GetActive())
+            continue;
+        if (bullet->GetTag() != tag)
+            continue;
+        if (!bullet->isColisionCircle(circle))
+            continue;
+
+        if (bullet->GetActive())
         {           
-           // bullet->SetActive(false);
+            bullet->SetActive(false);
             return true;
         }
     }

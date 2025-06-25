@@ -18,6 +18,12 @@ void Player::Update()
    MoveControl();
    LineOut();
    gaugeUpdate();
+   aiming();
+
+   if (BulletManager::GET()->IsCollision(this, "monster"))
+   {
+       isActive = false;
+   }
  
 }
 
@@ -25,6 +31,9 @@ void Player::Render(HDC hdc)
 {
     DrawLine(hdc);
     gauge(hdc);
+
+    MoveToEx(hdc, firePos.x, firePos.y, nullptr);
+    LineTo(hdc, aimPoint.x, aimPoint.y);
    
 }
 
@@ -51,10 +60,19 @@ void Player::MoveControl()
     }    
     if (Input::GET()->IsKeyDown(VK_LBUTTON))
     {
-        Vector2 direction = mousePos - firePos;
-        BulletManager::GET()->FireBullet(firePos, direction.GetNomalize());
+        Vector2 direction = aimPoint - firePos;
+        BulletManager::GET()->FireBullet(firePos, "player", direction.GetNomalize());
     }
-  
+    if (Input::GET()->IsKeyPress('E'))
+    {
+        angle -= DELTA;
+    }
+
+    if (Input::GET()->IsKeyPress('Q'))
+    {
+        angle += DELTA;
+    }
+
     BulletManager::GET()->Update();
 }
 
@@ -178,4 +196,16 @@ void Player::gaugeUpdate()
         // 기 모으는 키를 누르지 않고 있을 때는 isCharging이 false 상태 유지
         // currentCharge는 공격 발동 시 0으로 리셋되거나, 시간이 지나면 자연 감소하게 만들 수도 있음
     }
+}
+
+void Player::aiming()
+{
+
+   // Vector2 direction = mousePos - firePos;
+   // aimPoint = firePos + direction.GetNomalize() * aimLenght;
+
+    float x = cos(angle) * aimLenght;
+    float y = -sin(angle) * aimLenght;
+
+    aimPoint = firePos + Vector2(x, y);
 }

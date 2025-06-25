@@ -6,6 +6,7 @@ class Player : public Circle
 private:
 	float speed = 200;
 	int attakPoint = 2;
+	float aimLenght = 50.0f;
 
 	Player(float radius);
 	~Player();
@@ -35,6 +36,9 @@ public:
 	void DrawLine(HDC hdc);
 	void gauge(HDC hdc);
 	void gaugeUpdate();
+
+	void aiming();
+
 	int GetPlayerAttakPoint() { return attakPoint; }
 
 private:
@@ -50,6 +54,8 @@ private:
 	float chargeSpeed = 0.005;
 	bool isCharging;
 	
-	Skill* skill;
+	float angle = PI * 0.5;
+
+	Vector2 aimPoint;
 	
 };

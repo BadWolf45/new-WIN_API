@@ -34,9 +34,10 @@ void Bullet::Update()
 
 
 
-void Bullet::Fire(Vector2 pos, Vector2 direction)
+void Bullet::Fire(Vector2 pos, string tag, Vector2 direction)
 {
 	this->direction = direction;
+	this->tag = tag;
 	center = pos;
 	isActive = true;
 }
