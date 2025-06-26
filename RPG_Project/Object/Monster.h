@@ -9,6 +9,8 @@ private:
 	float fireTime = 0;
 	float fireinter = 1;
 
+	int fireCount = 10;
+
 	int mexHealthPoint = 5;
 	int mexManaPoint = 3;
 public:
@@ -21,6 +23,7 @@ public:
 	void MonsterMove();
 	void Damage();
 	void Fire();
+	void MultiShot();
 
 	void SetPlayer(Player* player) { this->player = player; }
 
@@ -34,5 +37,5 @@ private:
 	HBRUSH hselectBrush;
 
 	Player* player = nullptr;
-
+	float angle = 0.0f;
 };

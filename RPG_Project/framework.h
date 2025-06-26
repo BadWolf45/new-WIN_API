@@ -6,10 +6,11 @@
 
 #define SCREEN_START1 300
 #define SCREEN_START2 250
-#define SCREEN_WIDTH 300
+#define SCREEN_WIDTH 1024
 #define SCREEN_HEIGHT 800
 #define DELTA Timer::GET()->GetElapsedTime()
 #define PI 3.14
+#define SCENE SceneManager::GET()
 
 #include "targetver.h"
 #define WIN32_LEAN_AND_MEAN             // 거의 사용되지 않는 내용을 Windows 헤더에서 제외합니다.
@@ -24,6 +25,7 @@ using namespace std;
 #include <algorithm>
 #include <cmath>
 #include <string>
+#include <unordered_map>
 
 
 #include "frameWork/meth/vector2.h"
@@ -37,10 +39,13 @@ using namespace std;
 #include "Object/Monster.h"
 #include "Object/Bullet.h"
 #include "Object/gauge.h"
-#include "Manager/BulletManger.h"
-#include "Manager/MonsterManager.h"
+
+#include "framework/Manager/BulletManger.h"
+#include "framework/Manager/MonsterManager.h"
 #include "Scene/Scene.h"
-#include "frameWork/GameManager.h"
+#include "frameWork/Manager/SceneManager.h"
+#include "Scene/TitleScene.h"
+#include "frameWork/Manager/GameManager.h"
 #include "Scene/shootingScene.h"
 
 

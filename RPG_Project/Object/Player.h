@@ -7,26 +7,15 @@ private:
 	float speed = 200;
 	int attakPoint = 2;
 	float aimLenght = 50.0f;
-
+	
+public:
 	Player(float radius);
 	~Player();
 	
 	
-public:
 
-	static Player* Get()
-	{
-		if (instance == nullptr)
-		{
-			instance = new Player(30);
-		}
-		return instance;
 
-	}
-	static void Delete()
-	{
-		delete instance;
-	}
+	
 
 	void Update();
 	void Render(HDC hdc);
@@ -43,7 +32,6 @@ public:
 
 private:
 	bool iskeyPreesed = false;
-	static Player* instance;
 	Vector2 firePos = {};
 	HPEN hPen;
 

@@ -5,7 +5,7 @@ class BulletManager : public Singleton<BulletManager>
 {
 	friend class Singleton;
 private:
-	int bulletPoolSize = 100;
+	int bulletPoolSize = 200;
 
 
 	BulletManager();

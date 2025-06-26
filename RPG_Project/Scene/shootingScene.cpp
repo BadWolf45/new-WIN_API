@@ -2,29 +2,45 @@
 
 ShootingScene::ShootingScene()
 {
-	Player::Get();
-	MonsterManager::GET()->SetPlayer(Player::Get());
-	BulletManager::GET();
+	
+
 
 }
 
 ShootingScene::~ShootingScene()
 {
-	Player::Get()->Delete();
-	MonsterManager::GET()->Delete;
-	BulletManager::GET()->Delete;
+
+	
 }
 
 void ShootingScene::Update()
 {
-	Player::Get()->Update();
+	player->Update();
 	MonsterManager::GET()->Update();
+	if (Input::GET()->IsKeyDown(VK_F2))
+	{
+		SCENE->ChageScene("Title");
+	}
 }
 
 void ShootingScene::Render(HDC hdc)
 {
 	BulletManager::GET()->Render(hdc);
-	Player::Get()->Render(hdc);
+	player->Render(hdc);
 	MonsterManager::GET()->Render(hdc);
 	
+}
+
+void ShootingScene::Start()
+{
+	player = new Player(20);
+	MonsterManager::GET()->SetPlayer(player);
+	BulletManager::GET();
+}
+
+void ShootingScene::End()
+{
+	delete player;
+	MonsterManager::GET()->Delete;
+	BulletManager::GET()->Delete;
 }

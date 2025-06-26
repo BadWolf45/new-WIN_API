@@ -67,8 +67,8 @@ void Monster::Damage()
 
 	if (BulletManager::GET()->IsCollision(this,"player"))
 	{
-		int P = Player::Get()->GetPlayerAttakPoint();
-		healthPoint -= P;
+		
+		healthPoint -= 2;
 		if (healthPoint <= 0)
 		{
 			healthPoint = mexHealthPoint;
@@ -82,8 +82,24 @@ void Monster::Fire()
 	fireTime += DELTA;
 	if (fireTime >= fireinter)
 	{
+		
 		fireTime = 0.0f;
-		Vector2 direction = player->GetCenter() - center;
+
+		MultiShot();
+		//Vector2 direction = player->GetCenter() - center;
+		//BulletManager::GET()->FireBullet(center, "monster", direction.GetNomalize());
+
+	}
+
+}
+
+void Monster::MultiShot()
+{
+	float stepAngle = PI * 2.0f / fireCount;
+	for (int i = 0; i < fireCount; i++)
+	{
+		angle = stepAngle * i;
+		Vector2 direction(cos(angle), sin(angle));
 		BulletManager::GET()->FireBullet(center, "monster", direction.GetNomalize());
 	}
 

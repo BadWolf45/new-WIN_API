@@ -17,7 +17,4 @@ private:
 
 	HDC backBuffer;
 	HBITMAP backBufferBitmap;
-
-	Scene* scene;
-	
 };

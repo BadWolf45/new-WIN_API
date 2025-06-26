@@ -1,6 +1,6 @@
 #include "framework.h"
 
-Player* Player::instance = nullptr;
+
 Player::Player(float radius) : Circle(radius)
 {
     center = { SCREEN_WIDTH>>1,SCREEN_HEIGHT * 4/5 };
@@ -58,17 +58,17 @@ void Player::MoveControl()
     {
         center += Vector2::Down() * speed * DELTA;
     }    
-    if (Input::GET()->IsKeyDown(VK_LBUTTON))
+    if (Input::GET()->IsKeyDown(VK_SPACE))
     {
-        Vector2 direction = mousePos - firePos;
+        Vector2 direction = aimPoint - firePos;
         BulletManager::GET()->FireBullet(firePos, "player", direction.GetNomalize());
     }
-    if (Input::GET()->IsKeyPress('E'))
+    if (Input::GET()->IsKeyPress(VK_RIGHT))
     {
         angle -= DELTA;
     }
 
-    if (Input::GET()->IsKeyPress('Q'))
+    if (Input::GET()->IsKeyPress(VK_LEFT))
     {
         angle += DELTA;
     }
@@ -166,11 +166,6 @@ void Player::gauge(HDC hdc)
 
 void Player::gaugeUpdate()
 {
-    // TODO: 발사 타이머 업데이트 (총알 딜레이 시 필요) ...
-// fireTimer += 1.0f;
-
-   // MoveControl(); // 캐릭터 움직임 제어 (여기서 키 입력 확인)
-
    
     if (GetAsyncKeyState(VK_SHIFT)) // 
     {
