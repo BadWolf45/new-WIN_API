@@ -25,10 +25,9 @@ void ShootingScene::Update()
 
 void ShootingScene::Render(HDC hdc)
 {
-	BulletManager::GET()->Render(hdc);
 	player->Render(hdc);
 	MonsterManager::GET()->Render(hdc);
-	
+	BulletManager::GET()->Render(hdc);
 }
 
 void ShootingScene::Start()
