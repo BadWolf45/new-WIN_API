@@ -1,9 +1,5 @@
 #include "framework.h"
 #include "monster.h"
-#include "monster.h"
-#include "monster.h"
-#include "monster.h"
-#include "monster.h"
 
 Monster::Monster(float radius) : Circle(radius)
 {
