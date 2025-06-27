@@ -6,9 +6,9 @@ SceneManager::SceneManager()
 
 SceneManager::~SceneManager()
 {
-	for (pair<string, Scene*> scene : scenes);
+	for (pair<string, Scene*> scene : scenes)
 	{
-		//delete scene.second;
+		delete scene.second;
 	}
 }
 

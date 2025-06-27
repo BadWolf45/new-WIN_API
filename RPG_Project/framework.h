@@ -33,6 +33,7 @@ using namespace std;
 #include "frameWork/Utilitys/Input.h"
 #include "frameWork/Utilitys/Timer.h"
 #include "utill/float2.h"
+#include "Object/GameObject.h"
 #include "Object/Circle.h"
 #include "Object/skill.h"
 #include "Object/Player.h"
@@ -47,6 +48,8 @@ using namespace std;
 #include "Scene/TitleScene.h"
 #include "frameWork/Manager/GameManager.h"
 #include "Scene/shootingScene.h"
+
+
 
 
 extern HWND hWnd;
