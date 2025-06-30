@@ -12,4 +12,7 @@ public:
 
 	void Render(HDC hdc) override;
 
+private:
+	Butten* startButten;
+	Butten* exitButten;
 };

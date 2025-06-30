@@ -5,6 +5,9 @@ class GameObject
 {
 public:
 	GameObject() = default;
+	GameObject(Vector2 center) : center(center) {}
+
+	
 	~GameObject() = default;
 
 

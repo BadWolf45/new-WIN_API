@@ -143,11 +143,13 @@
     <ClInclude Include="Object\GameObject.h" />
     <ClInclude Include="Object\gauge.h" />
     <ClInclude Include="Object\Monster.h" />
+    <ClInclude Include="Object\Rect.h" />
     <ClInclude Include="Object\skill.h" />
     <ClInclude Include="Object\헤더.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\shootingScene.h" />
     <ClInclude Include="Scene\TitleScene.h" />
+    <ClInclude Include="UI\Butten.h" />
     <ClInclude Include="utill\float2.h" />
     <ClInclude Include="frameWork\Manager\GameManager.h" />
     <ClInclude Include="Object\Player.h" />
@@ -167,10 +169,12 @@
     <ClCompile Include="Object\gauge.cpp" />
     <ClCompile Include="Object\Monster.cpp" />
     <ClCompile Include="Object\Player.cpp" />
+    <ClCompile Include="Object\Rect.cpp" />
     <ClCompile Include="Object\skill.cpp" />
     <ClCompile Include="RPG_Project.cpp" />
     <ClCompile Include="Scene\shootingScene.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
+    <ClCompile Include="UI\Butten.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RPG_Project.rc" />

@@ -40,6 +40,8 @@ using namespace std;
 #include "Object/Monster.h"
 #include "Object/Bullet.h"
 #include "Object/gauge.h"
+#include "Object/Rect.h"
+#include "UI/Butten.h"
 
 #include "framework/Manager/BulletManger.h"
 #include "framework/Manager/MonsterManager.h"
