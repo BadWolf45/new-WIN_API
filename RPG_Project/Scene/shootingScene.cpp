@@ -32,14 +32,14 @@ void ShootingScene::Render(HDC hdc)
 
 void ShootingScene::Start()
 {
-	player = new Player(20);
-	MonsterManager::GET()->SetPlayer(player);
+	player = new Player(20);	
 	BulletManager::GET();
+	MonsterManager::GET()->SetPlayer(player);
 }
 
 void ShootingScene::End()
 {
 	delete player;
-	MonsterManager::GET()->Delete;
-	BulletManager::GET()->Delete;
+	BulletManager::Delete();
+	MonsterManager::Delete();	
 }

@@ -25,7 +25,12 @@ void Rect::Render(HDC hdc)
         center.x + size.x * 0.5f, center.y + size.y * 0.5f);
 }
 
-bool Rect::isColisionPoint(Vector2 point)
-{
-    return false;
-}
+//bool Rect::isColisionPoint(Vector2 point)
+//{
+//    int dx = center.x - point.x;
+//    int dy = center.y - point.y;
+//
+//    //float distance = sqrt(dx * dx + dy * dy);
+//    return (dx * dx + dy * dy) <= (size * size);
+//   
+//}
