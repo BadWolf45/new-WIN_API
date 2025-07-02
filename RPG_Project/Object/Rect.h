@@ -9,9 +9,12 @@ public:
 	~Rect();
 
 	void Render(HDC hdc);
+	void SetFillcolor(COLORREF color);
 
 	bool isColisionPoint(Vector2 point);
 
 protected:
 	Vector2 size;
+	HBRUSH nomalBrush;
+	COLORREF fillColor;
 };

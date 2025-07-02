@@ -2,25 +2,16 @@
 
 ShootingScene::ShootingScene()
 {
-	
-
-
 }
 
 ShootingScene::~ShootingScene()
-{
-
-	
+{	
 }
 
 void ShootingScene::Update()
 {
 	player->Update();
 	MonsterManager::GET()->Update();
-	if (Input::GET()->IsKeyDown(VK_F2))
-	{
-		SCENE->ChageScene("Title");
-	}
 }
 
 void ShootingScene::Render(HDC hdc)
@@ -29,6 +20,7 @@ void ShootingScene::Render(HDC hdc)
 	MonsterManager::GET()->Render(hdc);
 	BulletManager::GET()->Render(hdc);
 }
+
 
 void ShootingScene::Start()
 {

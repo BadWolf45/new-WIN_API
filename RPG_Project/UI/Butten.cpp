@@ -4,29 +4,66 @@
 Butten::Butten(Vector2 center, Vector2 size)
 	: Rect(center,size)
 {
-    nomalBrush = CreateSolidBrush(RGB(255, 0, 0));
-    overBrush = CreateSolidBrush(RGB(255, 255, 0));
-    downBrush = CreateSolidBrush(RGB(0, 255, 0));
+
 }
 
 Butten::~Butten()
 {
-	delete nomalBrush;
-	delete overBrush;
-	delete downBrush;
+
 
 }
 
 void Butten::Update()
 {
+    bool isMouseOver = isColisionPoint(mousePos);
+    bool currentLButtonDown = GetAsyncKeyState(VK_LBUTTON) & 0x8000;
+
+    if (isMouseOver)
+    {
+        if (currentLButtonDown)
+        {
+            currentState = ButtonState::DOWN;
+        }
+        else
+        {
+            if (currentState == ButtonState::DOWN && !currentLButtonDown && prevLButtonDownState)
+            {
+                if (onClick)
+                {
+                    onClick();
+                }
+            }
+            currentState = ButtonState::OVER;
+        }
+    }
+    else
+        currentState = ButtonState::NORMAL;
+
+    prevLButtonDownState = currentLButtonDown;
 }
 
 void Butten::Render(HDC hdc)
 {
 	if (!isActive)
 		return;
+    COLORREF targetColor;
+    switch (currentState)
+    {
+    case ButtonState::NORMAL:
+        targetColor = RGB(200, 200, 200); 
+        break;
+    case ButtonState::OVER:
+        targetColor = RGB(150, 150, 255); 
+        break;
+    case ButtonState::DOWN:
+        targetColor = RGB(100, 100, 200); 
+        break;
+    }
+    SetFillcolor(targetColor); 
     HBRUSH defaultBrush = (HBRUSH)SelectObject(hdc, nomalBrush);
+
 	Rect::Render(hdc);
+
     int oldBkMode = SetBkMode(hdc, TRANSPARENT);
 
     RECT textRect = {

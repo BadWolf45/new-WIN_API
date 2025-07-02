@@ -12,7 +12,12 @@ public:
 
 	void Render(HDC hdc) override;
 
+	void GameStart();
+	void GameEXIT();
+	void Font(HDC hdc);
+
 private:
 	Butten* startButten;
 	Butten* exitButten;
+
 };

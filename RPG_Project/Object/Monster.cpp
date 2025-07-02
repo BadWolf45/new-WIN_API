@@ -81,9 +81,9 @@ void Monster::Fire()
 		
 		fireTime = 0.0f;
 
-		MultiShot();
-		//Vector2 direction = player->GetCenter() - center;
-		//BulletManager::GET()->FireBullet(center, "monster", direction.GetNomalize());
+		//MultiShot();
+		Vector2 direction = player->GetCenter() - center;
+		BulletManager::GET()->FireBullet(center, "monster", direction.GetNomalize());
 
 	}
 

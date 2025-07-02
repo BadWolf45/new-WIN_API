@@ -8,7 +8,7 @@ public:
 	Butten(Vector2 center, Vector2 size);
 	~Butten();
 
-	enum class ButtenState
+	enum class ButtonState
 	{
 		NORMAL,
 		OVER,
@@ -19,11 +19,10 @@ public:
 	void Render(HDC hdc);
 
 	void SetText(wstring text) { this->text = text; }
-
+	void SetOnClickListener(std::function<void()> listener) { this->onClick = listener;	}
 private:
 	wstring text = L"Butten";
-	HBRUSH nomalBrush;
-	HBRUSH overBrush;
-	HBRUSH downBrush;
-	ButtenState state = ButtenState::NORMAL;
+	ButtonState currentState;
+	bool prevLButtonDownState = false;
+	function<void()> onClick;
 };

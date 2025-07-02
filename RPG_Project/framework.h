@@ -26,6 +26,7 @@ using namespace std;
 #include <cmath>
 #include <string>
 #include <unordered_map>
+#include <functional>
 
 
 #include "frameWork/meth/vector2.h"
