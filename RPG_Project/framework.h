@@ -42,7 +42,7 @@ using namespace std;
 #include "Object/Bullet.h"
 #include "Object/gauge.h"
 #include "Object/Rect.h"
-#include "UI/Butten.h"
+#include "UI/Button.h"
 
 #include "framework/Manager/BulletManger.h"
 #include "framework/Manager/MonsterManager.h"

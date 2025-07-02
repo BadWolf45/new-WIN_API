@@ -1,12 +1,12 @@
 #pragma once
 #include "framework.h"
 
-class Butten : public Rect
+class Button : public Rect
 {
 public:
 
-	Butten(Vector2 center, Vector2 size);
-	~Butten();
+	Button(Vector2 center, Vector2 size);
+	~Button();
 
 	enum class ButtonState
 	{

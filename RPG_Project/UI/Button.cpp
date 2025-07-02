@@ -1,19 +1,19 @@
 #include "framework.h"
-#include "Butten.h"
+#include "Button.h"
 
-Butten::Butten(Vector2 center, Vector2 size)
+Button::Button(Vector2 center, Vector2 size)
 	: Rect(center,size)
 {
 
 }
 
-Butten::~Butten()
+Button::~Button()
 {
 
 
 }
 
-void Butten::Update()
+void Button::Update()
 {
     bool isMouseOver = isColisionPoint(mousePos);
     bool currentLButtonDown = GetAsyncKeyState(VK_LBUTTON) & 0x8000;
@@ -42,7 +42,7 @@ void Butten::Update()
     prevLButtonDownState = currentLButtonDown;
 }
 
-void Butten::Render(HDC hdc)
+void Button::Render(HDC hdc)
 {
 	if (!isActive)
 		return;

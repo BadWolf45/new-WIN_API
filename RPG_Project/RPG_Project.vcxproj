@@ -149,7 +149,7 @@
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\shootingScene.h" />
     <ClInclude Include="Scene\TitleScene.h" />
-    <ClInclude Include="UI\Butten.h" />
+    <ClInclude Include="UI\Button.h" />
     <ClInclude Include="utill\float2.h" />
     <ClInclude Include="frameWork\Manager\GameManager.h" />
     <ClInclude Include="Object\Player.h" />
@@ -174,7 +174,7 @@
     <ClCompile Include="RPG_Project.cpp" />
     <ClCompile Include="Scene\shootingScene.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
-    <ClCompile Include="UI\Butten.cpp" />
+    <ClCompile Include="UI\Button.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RPG_Project.rc" />

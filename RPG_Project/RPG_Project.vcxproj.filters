@@ -90,7 +90,7 @@
     <ClInclude Include="Object\Rect.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="UI\Butten.h">
+    <ClInclude Include="UI\Button.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -143,7 +143,7 @@
     <ClCompile Include="Object\Rect.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="UI\Butten.cpp">
+    <ClCompile Include="UI\Button.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -17,7 +17,7 @@ public:
 	void Font(HDC hdc);
 
 private:
-	Butten* startButten;
-	Butten* exitButten;
+	Button* startButton;
+	Button* exitButton;
 
 };

@@ -10,12 +10,15 @@ public:
 	void Update() override;
 	void Render(HDC hdc) override;
 	
+	void MainMenu();
+
+
 
 	void Start();
 	void End();
 private:
 	Player* player;
 	//MonsterManager* monsterManager;
-	
+	Button* mainButton;
 
 };
