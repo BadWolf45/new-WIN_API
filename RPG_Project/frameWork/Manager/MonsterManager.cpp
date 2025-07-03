@@ -1,12 +1,21 @@
 #include "framework.h"
 #include "MonsterManager.h"
 
-MonsterManager* MonsterManager::instance = nullptr;
 
+MonsterManager* Singleton<MonsterManager>::instance = nullptr;
 MonsterManager::MonsterManager()
 {
+
 	MonsterPoolcreate();
+	spawnPoints.push_back(new SpawnPoint(Vector2(100.0f, 100.0f), 1.0f));
+	spawnPoints.push_back(new SpawnPoint(Vector2(200.0f, 100.0f), 1.0f));
+
+	for (int i = 0; i < spawnPoints.size(); ++i)
+	{
+		SpawnMonsterAtPoint(i);
+	}
 }
+
 
 MonsterManager::~MonsterManager()
 {
@@ -15,13 +24,19 @@ MonsterManager::~MonsterManager()
 
 void MonsterManager::Update()
 {
-	spawnTimer += DELTA;
-	if (spawnTimer >= spawnDelay)
+	for (int i = 0; i < spawnPoints.size(); ++i)
 	{
-		
-		spawnTimer = 0.0f;
-		SpawnMonster();
-		
+		SpawnPoint* sp = spawnPoints[i]; 
+
+		if (!sp->SpawnActive) 
+		{
+			sp->RespawnCurrentTime += DELTA; 
+
+			if (sp->RespawnCurrentTime >= sp->RespawnTime) 
+			{
+				SpawnMonsterAtPoint(i);
+			}
+		}
 	}
 	
 	MonsterPoolUpdate();
@@ -68,28 +83,57 @@ void MonsterManager::MonsterPoolRender(HDC hdc)
 	}
 }
 
-
-
-
-void MonsterManager::SpawnMonster()
+void MonsterManager::NotifyMonsterDeath(Monster* deadMonster) 
 {
-	float rendomX = rand() % SCREEN_WIDTH;
+	
+	int spIndex = deadMonster->GetSpawnPointIndex();
 
-	for (Monster* monster : monsters)
+	if (spIndex != -1 && spIndex < spawnPoints.size())
 	{
-		if (!monster->GetActive())
+		SpawnPoint* sp = spawnPoints[spIndex]; 
+
+		sp->SpawnActive = false; 
+		sp->RespawnCurrentTime = 0.0f;
+		sp->monsterIndexPool = -1;
+	}
+	
+}
+
+void MonsterManager::SpawnMonsterAtPoint(int spawnPointIndex)
+{
+	if (spawnPointIndex < 0 || spawnPointIndex >= spawnPoints.size()) return; 
+
+	SpawnPoint* sp = spawnPoints[spawnPointIndex]; 
+
+	
+	for (int i = 0; i < monsters.size(); ++i)
+	{
+		Monster* monster = monsters[i];
+		if (!monster->GetActive()) 
 		{
-			monster->SetCenter(rendomX, 0);
-			monster->SetActive(true);
+			monster->SetCenter(sp->center.x, sp->center.y);
+			monster->SetActive(true); 
+			monster->SetSpawnPointIndex(spawnPointIndex); 
+			monster->ResetHealth(); 
+
+			sp->SpawnActive = true;
+			sp->RespawnCurrentTime = 0.0f;
+			sp->monsterIndexPool = i;
+
 			
-			break;
+			if (player)
+			{
+				monster->SetPlayer(player);
+			}
+			return; 
 		}
-		
 	}
 }
 
+
 void MonsterManager::SetPlayer(Player* player)
 {
+	this->player = player;
 	for (Monster* monster : monsters)
 	{
 		monster->SetPlayer(player);

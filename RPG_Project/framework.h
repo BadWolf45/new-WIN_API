@@ -34,6 +34,7 @@ using namespace std;
 #include "frameWork/Utilitys/Input.h"
 #include "frameWork/Utilitys/Timer.h"
 #include "utill/float2.h"
+
 #include "Object/GameObject.h"
 #include "Object/Circle.h"
 #include "Object/skill.h"
@@ -44,9 +45,16 @@ using namespace std;
 #include "Object/Rect.h"
 #include "UI/Button.h"
 
+
+
+
 #include "framework/Manager/BulletManger.h"
+#include "frameWork/Utilitys/SpawnPoint.h"
 #include "framework/Manager/MonsterManager.h"
+
+
 #include "Scene/Scene.h"
+#include "Scene/inventoryScnen.h"
 #include "frameWork/Manager/SceneManager.h"
 #include "Scene/TitleScene.h"
 #include "frameWork/Manager/GameManager.h"

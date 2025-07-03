@@ -135,6 +135,7 @@
     <ClInclude Include="frameWork\meth\vector2.h" />
     <ClInclude Include="frameWork\Utilitys\Input.h" />
     <ClInclude Include="frameWork\Utilitys\SingleTon.h" />
+    <ClInclude Include="frameWork\Utilitys\SpawnPoint.h" />
     <ClInclude Include="frameWork\Utilitys\Timer.h" />
     <ClInclude Include="frameWork\Manager\BulletManger.h" />
     <ClInclude Include="frameWork\Manager\MonsterManager.h" />
@@ -146,6 +147,7 @@
     <ClInclude Include="Object\Rect.h" />
     <ClInclude Include="Object\skill.h" />
     <ClInclude Include="Object\헤더.h" />
+    <ClInclude Include="Scene\inventoryScnen.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\shootingScene.h" />
     <ClInclude Include="Scene\TitleScene.h" />
@@ -160,6 +162,7 @@
   <ItemGroup>
     <ClCompile Include="frameWork\Manager\SceneManager.cpp" />
     <ClCompile Include="frameWork\Utilitys\Input.cpp" />
+    <ClCompile Include="frameWork\Utilitys\SpawnPoint.cpp" />
     <ClCompile Include="frameWork\Utilitys\Timer.cpp" />
     <ClCompile Include="frameWork\Manager\BulletManger.cpp" />
     <ClCompile Include="frameWork\Manager\MonsterManager.cpp" />
@@ -172,6 +175,7 @@
     <ClCompile Include="Object\Rect.cpp" />
     <ClCompile Include="Object\skill.cpp" />
     <ClCompile Include="RPG_Project.cpp" />
+    <ClCompile Include="Scene\inventoryScnen.cpp" />
     <ClCompile Include="Scene\shootingScene.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="UI\Button.cpp" />
