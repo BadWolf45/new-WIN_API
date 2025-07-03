@@ -9,7 +9,7 @@ class MonsterManager : public Singleton<MonsterManager>
 private:
 	int monsterPoolSize = 10;
 	//float spawnTimer = 0.0f;
-	//float spawnDelay = 2.0f; // 예시: 2초마다 생성 (게임 루프 속도에 따라 조절)
+	//float spawnDelay = 2.0f; 
 	
 protected:
 	MonsterManager();

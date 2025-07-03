@@ -120,44 +120,41 @@ void Player::DrawLine(HDC hdc)
 
 void Player::gauge(HDC hdc)
 {
-    // TODO: 체력바 그리기 코드 ...
+  
 
-// TODO: 기 모으는 게이지 그리기!
-// 기를 모으고 있을 때만 게이지를 보여주는 게 좋겠지?
-    if (isCharging || currentCharge > 0.0f) // 기 모으는 중이거나 모은 기가 있을 때
+
+    if (isCharging || currentCharge > 0.0f) 
     {
-        float gaugeWidth = 60.0f; // 게이지 전체 너비 (예시)
-        float gaugeHeight = 7.0f; // 게이지 높이 (예시)
+        float gaugeWidth = 60.0f; 
+        float gaugeHeight = 7.0f; 
 
-        // 게이지 위치 계산 (캐릭터 중심 아래쪽으로)
+        // 게이지 위치 계산
         float gaugeX = center.x - gaugeWidth / 2.0f;
         float gaugeY = center.y + radius + 5.0f;
 
-        // 게이지 사각형 영역 (정수 좌표로 변환)
+        
         RECT gaugeBackgroundRect = { (int)gaugeX, (int)gaugeY, (int)(gaugeX + gaugeWidth), (int)(gaugeY + gaugeHeight) };
 
-        // 1. 배경 막대 그리기 (회색)
-        HBRUSH hGrayBrush = CreateSolidBrush(RGB(100, 100, 100)); // 회색 브러시 생성
-        FillRect(hdc, &gaugeBackgroundRect, hGrayBrush); // 배경 사각형 채우기
-        DeleteObject(hGrayBrush); // 브러시 삭제
+        
+        HBRUSH hGrayBrush = CreateSolidBrush(RGB(100, 100, 100)); 
+        FillRect(hdc, &gaugeBackgroundRect, hGrayBrush); 
+        DeleteObject(hGrayBrush); 
 
-        // 2. 현재 기 모은 비율 계산
+    
         float chargeRatio = currentCharge / maxCharge;
-        // 비율이 0.0 ~ 1.0 범위를 벗어나지 않도록 클램핑
         chargeRatio = max(0.0f, std::min(chargeRatio, 1.0f));
 
-        // 3. 현재 기 게이지 막대 너비 계산
+        
         float currentGaugeWidth = gaugeWidth * chargeRatio;
 
-        // 4. 전경 막대 그리기 (노란색)
-        // 현재 기 게이지 막대 사각형 영역 (정수 좌표로 변환)
+     
         RECT gaugeForegroundRect = { (int)gaugeX, (int)gaugeY, (int)(gaugeX + currentGaugeWidth), (int)(gaugeY + gaugeHeight) };
 
         HBRUSH hYellowBrush = CreateSolidBrush(RGB(255, 255, 0)); // 노란색 브러시 생성
         FillRect(hdc, &gaugeForegroundRect, hYellowBrush); // 전경 사각형 채우기
         DeleteObject(hYellowBrush); // 브러시 삭제
 
-        // TODO: 필요하다면 게이지 테두리 그리기 (Rectangle 함수 사용)
+      
     }
 
 
