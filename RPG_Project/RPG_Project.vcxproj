@@ -171,6 +171,7 @@
     <ClCompile Include="Object\Circle.cpp" />
     <ClCompile Include="frameWork\Manager\GameManager.cpp" />
     <ClCompile Include="Object\gauge.cpp" />
+    <ClCompile Include="Object\HealthPointBar.cpp" />
     <ClCompile Include="Object\Monster.cpp" />
     <ClCompile Include="Object\Player.cpp" />
     <ClCompile Include="Object\Rect.cpp" />

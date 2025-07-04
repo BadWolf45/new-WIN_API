@@ -43,6 +43,7 @@ using namespace std;
 #include "Object/Bullet.h"
 #include "Object/gauge.h"
 #include "Object/Rect.h"
+#include "Object/HealthPointBar.h"
 #include "UI/Button.h"
 
 

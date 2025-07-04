@@ -45,4 +45,6 @@ private:
 
 	Player* player = nullptr;
 	float angle = 0.0f;
+
+	class HealthPointBar* HPBar;
 };

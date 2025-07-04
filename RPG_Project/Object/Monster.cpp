@@ -7,7 +7,9 @@ Monster::Monster(float radius) : Circle(radius)
 	hRedBrush = CreateSolidBrush(RGB(255, 0, 0));
 	hbluebrush = CreateSolidBrush(RGB(0, 0, 255));
 
-
+	//HPBar = new HealthPointBar(Vector2(this->center.x, this->center.y + 100),Vector2(100,50));
+	HPBar = new HealthPointBar(Vector2(this->center), Vector2(40, 10), healthPoint);
+	
 	
 }
 
@@ -15,6 +17,7 @@ Monster::~Monster()
 {
 	DeleteObject(hRedBrush);
 	DeleteObject(hbluebrush);
+	delete HPBar;
 	
 }
 
@@ -24,6 +27,7 @@ void Monster::Update()
 	MonsterMove();
 	Damage();
 	//Fire();
+	
 
 }
 
@@ -32,8 +36,12 @@ void Monster::Render(HDC hdc)
 	if (!isActive) { return; }
 	HBRUSH defaoltBrush1 =  (HBRUSH)SelectObject(hdc, hselectBrush);
 	Circle::Render(hdc);
+	float Low = center.y + radius;
+	HPBar->SetCenter(center.x, Low + 10);
 
 	SelectObject(hdc, defaoltBrush1);
+
+	HPBar->Render(hdc);
 }
 
 
