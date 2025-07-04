@@ -143,11 +143,12 @@
     <ClInclude Include="Object\Circle.h" />
     <ClInclude Include="Object\GameObject.h" />
     <ClInclude Include="Object\gauge.h" />
+    <ClInclude Include="Object\HealthPointBar.h" />
     <ClInclude Include="Object\Monster.h" />
     <ClInclude Include="Object\Rect.h" />
     <ClInclude Include="Object\skill.h" />
     <ClInclude Include="Object\헤더.h" />
-    <ClInclude Include="Scene\inventoryScnen.h" />
+    <ClInclude Include="Scene\InventoryScene.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\shootingScene.h" />
     <ClInclude Include="Scene\TitleScene.h" />
@@ -175,7 +176,7 @@
     <ClCompile Include="Object\Rect.cpp" />
     <ClCompile Include="Object\skill.cpp" />
     <ClCompile Include="RPG_Project.cpp" />
-    <ClCompile Include="Scene\inventoryScnen.cpp" />
+    <ClCompile Include="Scene\InventoryScene.cpp" />
     <ClCompile Include="Scene\shootingScene.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="UI\Button.cpp" />

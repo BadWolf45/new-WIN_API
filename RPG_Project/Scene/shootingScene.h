@@ -11,6 +11,7 @@ public:
 	void Render(HDC hdc) override;
 	
 	void MainMenu();
+	void Shop();
 
 
 
@@ -20,5 +21,6 @@ private:
 	Player* player;
 	//MonsterManager* monsterManager;
 	Button* mainButton;
+	
 
 };

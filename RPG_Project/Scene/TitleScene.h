@@ -14,10 +14,12 @@ public:
 
 	void GameStart();
 	void GameEXIT();
+	void GameShop();
+
 	void Font(HDC hdc);
 
 private:
 	Button* startButton;
 	Button* exitButton;
-
+	Button* shop;
 };

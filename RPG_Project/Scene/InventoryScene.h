@@ -1,20 +1,20 @@
 #pragma once
 #include "framework.h"
 
-class inventoryScnen : public Scene
+class InventoryScene : public Scene
 {
 
 public:
 
-	enum class State
+	enum class ShopState
 	{
 		shop,
 		inventory,
 		exit
 	};
 
-	inventoryScnen();
-	~inventoryScnen();
+	InventoryScene();
+	~InventoryScene();
 
 
 
@@ -22,9 +22,19 @@ public:
 	void Update() override;
 	void Render(HDC hdc) override;
 
+	void CreateButton();
+
+	void SceneBack();
+
 	void Start() {}
 	void End() {}
 
 private:
+
+	//Button* shop;
+	//Button* inventory;
+	Button* back;
+
+	Rect* rect;
 
 };

@@ -4,7 +4,7 @@ class Monster : public Circle
 {
 private:
 	float AttackPoint = 1.0f;
-	float speed = 100.0f;
+	float speed = 10.0f;
 
 	float fireTime = 0;
 	float fireinter = 1;

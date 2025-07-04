@@ -41,37 +41,8 @@ void Player::Render(HDC hdc)
 
 void Player::MoveControl()
 {
-    if (GetAsyncKeyState('D'))
-    {
-        //center.x += speed;
-        center += Vector2::Right() * speed * DELTA;
-    }
-    if (GetAsyncKeyState('A'))
-    {
-        center += Vector2::Left() * speed * DELTA;
-    }
-    if (GetAsyncKeyState('W'))
-    {
-        center += Vector2::Up() * speed * DELTA;
-    }
-    if (GetAsyncKeyState('S'))
-    {
-        center += Vector2::Down() * speed * DELTA;
-    }    
-    if (Input::GET()->IsKeyDown(VK_SPACE))
-    {
-        Vector2 direction = aimPoint - firePos;
-        BulletManager::GET()->FireBullet(firePos, "player", direction.GetNomalize());
-    }
-    if (Input::GET()->IsKeyPress(VK_RIGHT))
-    {
-        angle -= DELTA;
-    }
-
-    if (Input::GET()->IsKeyPress(VK_LEFT))
-    {
-        angle += DELTA;
-    }
+    KeybordMove();
+   
 
     BulletManager::GET()->Update();
 }
@@ -188,6 +159,46 @@ void Player::gaugeUpdate()
         // 기 모으는 키를 누르지 않고 있을 때는 isCharging이 false 상태 유지
         // currentCharge는 공격 발동 시 0으로 리셋되거나, 시간이 지나면 자연 감소하게 만들 수도 있음
     }
+}
+
+void Player::KeybordMove()
+{
+    if (GetAsyncKeyState('D'))
+    {
+        //center.x += speed;
+        center += Vector2::Right() * speed * DELTA;
+    }
+    if (GetAsyncKeyState('A'))
+    {
+        center += Vector2::Left() * speed * DELTA;
+    }
+    if (GetAsyncKeyState('W'))
+    {
+        center += Vector2::Up() * speed * DELTA;
+    }
+    if (GetAsyncKeyState('S'))
+    {
+        center += Vector2::Down() * speed * DELTA;
+    }
+    if (Input::GET()->IsKeyDown(VK_SPACE))
+    {
+        Vector2 direction = aimPoint - firePos;
+        BulletManager::GET()->FireBullet(firePos, "player", direction.GetNomalize());
+    }
+    if (Input::GET()->IsKeyPress(VK_RIGHT))
+    {
+        angle -= DELTA;
+    }
+
+    if (Input::GET()->IsKeyPress(VK_LEFT))
+    {
+        angle += DELTA;
+    }
+}
+
+void Player::MouseControl()
+{
+
 }
 
 void Player::aiming()

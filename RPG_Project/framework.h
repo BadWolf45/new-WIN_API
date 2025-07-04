@@ -54,7 +54,7 @@ using namespace std;
 
 
 #include "Scene/Scene.h"
-#include "Scene/inventoryScnen.h"
+#include "Scene/InventoryScene.h"
 #include "frameWork/Manager/SceneManager.h"
 #include "Scene/TitleScene.h"
 #include "frameWork/Manager/GameManager.h"

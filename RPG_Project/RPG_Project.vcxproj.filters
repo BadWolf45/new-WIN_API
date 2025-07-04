@@ -93,10 +93,13 @@
     <ClInclude Include="UI\Button.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\inventoryScnen.h">
+    <ClInclude Include="Scene\InventoryScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="frameWork\Utilitys\SpawnPoint.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\HealthPointBar.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -152,7 +155,7 @@
     <ClCompile Include="UI\Button.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\inventoryScnen.cpp">
+    <ClCompile Include="Scene\InventoryScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="frameWork\Utilitys\SpawnPoint.cpp">

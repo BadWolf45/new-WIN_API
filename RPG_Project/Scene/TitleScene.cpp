@@ -2,13 +2,19 @@
 
 TitleScene::TitleScene()
 {
-	startButton = new Button(Vector2(300, 400), Vector2(200, 90));
+	startButton = new Button(Vector2(SCREEN_WIDTH * 0.5, 350), Vector2(200, 90));
 	startButton->SetText(L"start");
 	startButton->SetOnClickListener([this]() {this->GameStart(); });
 
-	exitButton = new Button(Vector2(300, 500), Vector2(200, 90));
+	shop = new Button(Vector2(SCREEN_WIDTH * 0.5, 450), Vector2(200,90));
+	shop->SetText(L"shop");
+	shop->SetOnClickListener([this]() {this->GameShop(); });
+
+	exitButton = new Button(Vector2(SCREEN_WIDTH * 0.5, 550), Vector2(200, 90));
 	exitButton->SetText(L"EXIT");
 	exitButton->SetOnClickListener([this]() {this->GameEXIT();});
+
+
 	
 }
 
@@ -16,12 +22,14 @@ TitleScene::~TitleScene()
 {
 	delete startButton;
 	delete exitButton;
+	delete shop;
 }
 
 void TitleScene::Update()
 {
 	startButton->Update();
 	exitButton->Update();
+	//shop->Update();
 }
 
 void TitleScene::Render(HDC hdc)
@@ -52,6 +60,7 @@ void TitleScene::Render(HDC hdc)
 	//SelectObject(hdc, hOldFont);
 	startButton->Render(hdc);
 	exitButton->Render(hdc);
+	//shop->Render(hdc);
 }
 
 void TitleScene::GameStart()
@@ -62,6 +71,11 @@ void TitleScene::GameStart()
 void TitleScene::GameEXIT()
 {
 	PostQuitMessage(0);
+}
+
+void TitleScene::GameShop()
+{
+	SCENE->ChageScene("shop");
 }
 
 void TitleScene::Font(HDC hdc)

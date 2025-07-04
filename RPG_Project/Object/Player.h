@@ -25,6 +25,8 @@ public:
 	void DrawLine(HDC hdc);
 	void gauge(HDC hdc);
 	void gaugeUpdate();
+	void KeybordMove();
+	void MouseControl();
 
 	void aiming();
 

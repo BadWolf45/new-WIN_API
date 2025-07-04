@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "Scene/shootingScene.h"
 
+
 GameManager::GameManager()
 {
 	hdc = GetDC(hWnd);
@@ -11,6 +12,8 @@ GameManager::GameManager()
 
 	SCENE->AddScene("Title", new TitleScene());
 	SCENE->AddScene("Game", new ShootingScene());
+	SCENE->AddScene("shop", new InventoryScene()); 
+	
 	SCENE->ChageScene("Title");
 }
 
