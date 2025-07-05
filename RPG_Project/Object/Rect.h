@@ -6,15 +6,15 @@ public:
 
 	Rect();
 	Rect(Vector2 center, Vector2 size);
-	~Rect();
+	virtual ~Rect();
 
 	void Render(HDC hdc);
-	void SetFillcolor(COLORREF color);
+	void SetFillColor(COLORREF color);
 
-	bool isColisionPoint(Vector2 point);
+	bool isCollisionPoint(Vector2 point);
 
 protected:
 	Vector2 size;
-	HBRUSH nomalBrush;
+	HBRUSH hFillBrush;
 	COLORREF fillColor;
 };

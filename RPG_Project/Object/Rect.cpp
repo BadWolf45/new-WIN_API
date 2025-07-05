@@ -9,13 +9,14 @@ Rect::Rect(Vector2 center, Vector2 size)
 {
    
     fillColor = RGB(200, 200, 200);
-    nomalBrush = CreateSolidBrush(fillColor);
+    hFillBrush = CreateSolidBrush(fillColor);
 
    
 }
 
 Rect::~Rect()
 {
+    if (hFillBrush) DeleteObject(hFillBrush);
 }
 
 void Rect::Render(HDC hdc)
@@ -24,7 +25,8 @@ void Rect::Render(HDC hdc)
     {
         return;
     }
-    HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, nomalBrush);
+    if (!hFillBrush) { return; }
+    HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, hFillBrush);
 
     Rectangle(hdc,
         center.x - size.x * 0.5f, center.y - size.y * 0.5f,
@@ -33,18 +35,18 @@ void Rect::Render(HDC hdc)
     SelectObject(hdc, hOldBrush);
 }
 
-void Rect::SetFillcolor(COLORREF color)
+void Rect::SetFillColor(COLORREF color)
 {
     if (fillColor != color) 
     {
         fillColor = color;
        
-        if (nomalBrush) DeleteObject(nomalBrush);
-        nomalBrush = CreateSolidBrush(fillColor);
+        if (hFillBrush) DeleteObject(hFillBrush);
+        hFillBrush = CreateSolidBrush(fillColor);
     }
 }
 
-bool Rect::isColisionPoint(Vector2 point)
+bool Rect::isCollisionPoint(Vector2 point)
 {
 
     float left = center.x - size.x * 0.5f;   

@@ -8,7 +8,7 @@ public:
 	GameObject(Vector2 center) : center(center) {}
 
 	
-	~GameObject() = default;
+	virtual ~GameObject() = default;
 
 
 
